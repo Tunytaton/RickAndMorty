@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+    color: white;
+    background-color: lightgreen;
+    opacity: 80%;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.container input {
+    border-radius: 5px;
+    display: flex;
+    opacity: 100%;
+    height: 30px;
+}
+
+.container button{
+    border-radius: 5px;
+    background-color: darkblue;
+    color: white;
+    padding: 0 10 0 10px;
+    font-size: 20px;
+    border: 0px;
+    box-shadow: cyan;
+}
+
+.error {
+    color: red;
+}
