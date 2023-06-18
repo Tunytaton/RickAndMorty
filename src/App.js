@@ -6,6 +6,8 @@ import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import Form from './components/Form/Form';
+import axios from 'axios';
+import Favorites from './components/Fav/Favorites';
 
 function App() {
 
@@ -23,20 +25,29 @@ function App() {
          navigate("/home");
       }
    }
-   
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
 
 
    function onSearch(character) {
-      fetch(`https://rickandmortyapi.com/api/character/${character}`)
-         .then((response) => response.json())
-         .then((data) => {
-            if (data.name) {
+      axios.get(`https://rickandmortyapi.com/api/character/${character}`)
+         .then(({ data }) => {
+            if (data && data.name) {
+               const char = characters.find((ch) => ch.id === Number(character));
+               if (char) return alert("El personaje ya existe");
                setCharacters((oldChars) => [...oldChars, data]);
+               console.log(character.id);
             } else {
-               window.alert('No hay personajes con ese ID');
+               window.alert('No hay personajes con ese ID!');
+            }
+         })
+         .catch(error => {
+            if (error.response && error.response.status === 404) {
+               window.alert('No hay personajes con ese ID!');
+            } else {
+               console.error('Error en la solicitud:', error);
             }
          });
    }
@@ -54,6 +65,8 @@ function App() {
          <Routes>
             <Route exact path='/' element={<Form login={login} />} />
             <Route path='/about' element={<About />} />
+            <Route path='/favorites' element={<Favorites />} />
+            
             <Route
                path='/home'
                element={<Cards characters={characters} onClose={onClose} />

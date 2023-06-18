@@ -19,7 +19,7 @@ export default function reducer(
             }
         case REMOVE_FAV:
             const filteredFavs = state.myFavorites.filter(
-                fav => fav.id !== Number(payload)
+                (fav) => fav.id !== Number(payload)
             )
             return {
                 ...state,
