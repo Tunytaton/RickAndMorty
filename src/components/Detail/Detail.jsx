@@ -8,13 +8,6 @@ export default function Detail(props) {
     const [character, setCharacter] = useState({});
 
     useEffect(() => {
-        // axios(`https://rickandmortyapi.com/api/character/${detailId}`)
-        // .then((response) => setCharacter(response.data))
-
-
-
-
-
         fetch(`https://rickandmortyapi.com/api/character/${detailId}`)
             .then((response) => response.json())
             .then((char) => {
@@ -33,9 +26,9 @@ export default function Detail(props) {
     return (
         <div>
             <div className={styles.div}>
-            <Link to="/home">
-                <button className={styles.button}>Go Back</button>
-            </Link>
+                <Link to="/home">
+                    <button className={styles.button}>Go Back</button>
+                </Link>
             </div>
             <div className={styles.container}>
                 <h1>{character.name}</h1>

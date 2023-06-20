@@ -7,20 +7,26 @@
 }
 
 .container input {
-    border-radius: 10px 0px 0px 10px;
     height: 2em;
     border: 0px;
     
 }
 
-.container button {
+.button {
     border-radius: 0px 10px 10px 0px;
     background-color: darkblue;
     color: white;
     padding: 0 10 0 10px;
     font-size: 20px;
     border: 0px;
-    box-shadow: 15px 0px 30px 5px cyan;
-    -webkit-box-shadow: 15px 0px 30px 5px cyan;
-    -moz-box-shadow: 15px 0px 30px 5px cyan;
+    
+}
+
+.random {
+    border-radius: 10px 0px 0px 10px;
+    background-color: darkblue;
+    color: white;
+    padding: 0 10 0 10px;
+    font-size: 20px;
+    border: 0px;
 }
